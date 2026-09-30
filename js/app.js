@@ -16,6 +16,26 @@ function ensurePageThrobber() {
   return pageThrobber;
 }
 
+function beginAccountThrobber() {
+  const throbber = ensurePageThrobber();
+  document.body.classList.add("page-leaving");
+  requestAnimationFrame(() => throbber.classList.add("is-active"));
+  return throbber;
+}
+
+function finishAccountThrobber(throbber) {
+  window.setTimeout(() => {
+    throbber.classList.remove("is-active");
+    document.body.classList.remove("page-leaving");
+  }, 480);
+}
+
+function navigateWithAccountThrobber(url) {
+  try { sessionStorage.setItem("tk:page-transition", "1"); } catch {}
+  beginAccountThrobber();
+  window.setTimeout(() => { location.href = url; }, 320);
+}
+
 try {
   pageTransitionPending = sessionStorage.getItem("tk:page-transition") === "1";
   sessionStorage.removeItem("tk:page-transition");
@@ -241,7 +261,6 @@ function accountNav(active) {
   const items = [
     ["account.html", "Dashboard"],
     ["orders.html", "My Orders"],
-    ["wishlist.html", "Wishlist"],
     ["profile.html", "Profile"],
     ["addresses.html", "Addresses"],
     ["payment-methods.html", "Payment Methods"],
@@ -904,14 +923,12 @@ function initMotion() {
     const link = event.target.closest("a[href]");
     if (!link || link.target || link.hasAttribute("download") || link.origin !== location.origin) return;
     const destination = new URL(link.href);
+    const isAccountIcon = link.matches('.icon-btn[aria-label="Account"]') && destination.pathname.split("/").pop() === "account.html";
+    if (!isAccountIcon) return;
     if (destination.pathname === location.pathname && destination.search === location.search) return;
     event.preventDefault();
     isNavigating = true;
-    try { sessionStorage.setItem("tk:page-transition", "1"); } catch {}
-    pageThrobber = ensurePageThrobber();
-    requestAnimationFrame(() => pageThrobber.classList.add("is-active"));
-    document.body.classList.add("page-leaving");
-    setTimeout(() => { location.href = link.href; }, 320);
+    navigateWithAccountThrobber(link.href);
   });
 }
 
@@ -971,13 +988,15 @@ function initAuth(root) {
         showToast(mode === "login" ? "Logged in successfully." : "Account created successfully.");
       }
       const target = pendingAction.redirect || "index.html";
-      location.href = target;
+      navigateWithAccountThrobber(target);
       return;
     }
+    const loginThrobber = mode === "login" ? beginAccountThrobber() : null;
     showToast(mode === "login" ? "Logged in successfully." : "Account created successfully.");
     renderHeader();
     bindHeaderButtons();
     initAccountDash();
+    if (loginThrobber) finishAccountThrobber(loginThrobber);
   });
 }
 
@@ -998,7 +1017,6 @@ function initAccountDash() {
         <h1>Welcome back, ${p.firstName}.</h1>
         <div class="stat-grid" style="margin:1rem 0">
           <div class="stat"><b>${orders.length}</b><p class="muted">Orders</p></div>
-          <div class="stat"><b>${getWishlist().length}</b><p class="muted">Wishlist</p></div>
           <div class="stat"><b>${unreadCount()}</b><p class="muted">Alerts</p></div>
         </div>
         <h2>Recent orders</h2>

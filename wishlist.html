@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wishlist — TokoKriya</title>
-  <script>try{if(localStorage.getItem("tokokriya-theme")==="dark")document.documentElement.dataset.theme="dark"}catch{}try{if(sessionStorage.getItem("tk:page-transition")==="1")document.documentElement.dataset.pageTransition="pending"}catch{}</script>
+  <script>try{if(localStorage.getItem("tokokriya-theme")==="dark")document.documentElement.dataset.theme="dark"}catch{}try{if(sessionStorage.getItem("tk:page-transition")==="1")document.documentElement.dataset.pageTransition="pending"}catch{}try{if(sessionStorage.getItem("tk:loading:completed:v1")!=="1")document.documentElement.dataset.sessionLoading="1"}catch{}</script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/animations.css">
 </head>
 <body data-page="wish">
+  <script src="js/loading.js"></script>
   <header id="site-header" class="site-header"></header>
   <main id="main" class="container" style="padding-top:1.5rem">
     <h1>My Wishlist</h1>

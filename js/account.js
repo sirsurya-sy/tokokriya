@@ -121,5 +121,5 @@ function logoutDemo() {
   localStorage.removeItem(userStorageKey(KEYS.checkoutReturn));
   localStorage.removeItem(KEYS.session);
   showToast("You have been logged out.");
-  location.href = "index.html";
+  navigateWithAccountThrobber("index.html");
 }
