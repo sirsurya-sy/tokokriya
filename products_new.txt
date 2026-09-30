@@ -1,0 +1,353 @@
+﻿const PRODUCTS = [
+  {
+    id: "p01", slug: "tas-kulit-tanggulangin", name: "Tas Kulit Tanggulangin", category: "Kulit Tanggulangin",
+    brand: "Tanggulangin Craft", price: 499000, oldPrice: 599000, discount: 17, rating: 4.8, reviewCount: 124,
+    stock: 14, stockStatus: "In Stock", colors: ["Coklat", "Hitam"], sizes: [],
+    description: "Tas tangan kulit sapi asli buatan pengrajin Tanggulangin Sidoarjo. Jahitan tangan rapi, hardware kuningan, dan interior luas. Cocok untuk kerja maupun acara formal.",
+    images: [L("tas-kulit-tanggulangin.jpg"), L("tas-kulit-hitam.jpg"), L("tas-kulit-coklat-2.jpg")],
+    badge: "-17%", featured: true, bestSeller: true, newArrival: false,
+    details: { material: "Kulit sapi asli full-grain", dimensions: "28 x 20 x 12 cm" }
+  },
+  {
+    id: "p02", slug: "sandal-kulit-tanggulangin", name: "Sandal Kulit Tanggulangin", category: "Kulit Tanggulangin",
+    brand: "Tanggulangin Craft", price: 379000, oldPrice: 450000, discount: 16, rating: 4.7, reviewCount: 96,
+    stock: 22, stockStatus: "In Stock", colors: ["Coklat", "Tan"], sizes: ["38", "39", "40", "41", "42", "43"],
+    description: "Sandal kulit sapi asli handmade dari Tanggulangin. Lapisan dalam kulit lembut, sol karet tebal antislip. Nyaman dipakai sepanjang hari.",
+    images: [L("sandal-kulit-tanggulangin.jpg")],
+    badge: "-16%", featured: true, bestSeller: true, newArrival: true,
+    details: { material: "Kulit sapi full-grain", sole: "Karet tebal antislip" }
+  },
+  {
+    id: "p03", slug: "tas-selempang-kulit", name: "Tas Selempang Kulit", category: "Kulit Tanggulangin",
+    brand: "Tanggulangin Craft", price: 209000, oldPrice: 280000, discount: 25, rating: 4.9, reviewCount: 210,
+    stock: 30, stockStatus: "In Stock", colors: ["Coklat", "Hitam"], sizes: [],
+    description: "Tas selempang kulit sapi asli dengan tali adjustable dan satu kantong depan. Ringan dan praktis untuk aktivitas harian.",
+    images: [L("tas-selempang-kulit.jpg"), L("tas-kulit-tanggulangin.jpg")],
+    badge: "-25%", featured: true, bestSeller: true, newArrival: false,
+    details: { material: "Kulit sapi asli", dimensions: "20 x 15 x 6 cm" }
+  },
+  {
+    id: "p04", slug: "dompet-kulit-tanggulangin", name: "Dompet Kulit Ukir Tanggulangin", category: "Kulit Tanggulangin",
+    brand: "Tanggulangin Craft", price: 449000, oldPrice: 550000, discount: 18, rating: 4.9, reviewCount: 165,
+    stock: 11, stockStatus: "In Stock", colors: ["Tan", "Coklat Tua"], sizes: [],
+    description: "Dompet lipat kulit sapi asli dengan ukiran bunga khas Tanggulangin. Interior dengan banyak slot kartu dan kantong uang.",
+    images: [L("dompet-kulit-tanggulangin.jpg"), L("dompet-kulit-klasik.jpg")],
+    badge: "-18%", featured: true, bestSeller: true, newArrival: false,
+    details: { material: "Kulit sapi full-grain", slots: "8 slot kartu" }
+  },
+  {
+    id: "p05", slug: "tas-ransel-kulit", name: "Tas Ransel Kulit Artisan", category: "Kulit Tanggulangin",
+    brand: "Tanggulangin Craft", price: 699000, oldPrice: 850000, discount: 18, rating: 4.8, reviewCount: 42,
+    stock: 9, stockStatus: "In Stock", colors: ["Coklat Tua", "Hitam"], sizes: [],
+    description: "Tas ransel kulit sapi handmade dengan banyak kompartemen dan hardware kuningan. Tahan lama untuk kerja dan travel.",
+    images: [L("tas-ransel-kulit.jpg"), L("tas-laptop-kulit.jpg")],
+    badge: "JUST IN", featured: true, bestSeller: false, newArrival: true,
+    details: { material: "Kulit crazy horse asli", laptop: "Slot laptop 14 inci" }
+  },
+  {
+    id: "p06", slug: "sandal-anyaman-pandan", name: "Sandal Anyaman Pandan", category: "Anyaman",
+    brand: "Kriya Anyam", price: 349000, oldPrice: 420000, discount: 17, rating: 4.6, reviewCount: 88,
+    stock: 18, stockStatus: "In Stock", colors: ["Natural", "Coklat"], sizes: ["38", "39", "40", "41", "42"],
+    description: "Sandal anyaman daun pandan handmade khas Sidoarjo. Sol kulit tipis, anyaman kuat, ringan dan sejuk dipakai.",
+    images: [L("sandal-anyaman-pandan.jpg")],
+    badge: "-17%", featured: false, bestSeller: false, newArrival: true,
+    details: { material: "Daun pandan & kulit sapi" }
+  },
+  {
+    id: "p07", slug: "tas-batik-jetis", name: "Tas Batik Jetis Selempang", category: "Batik Jetis",
+    brand: "Batik Jetis Studio", price: 259000, oldPrice: 320000, discount: 19, rating: 4.7, reviewCount: 94,
+    stock: 16, stockStatus: "In Stock", colors: ["Hitam-Merah", "Coklat-Krem"], sizes: [],
+    description: "Tas selempang dari kain batik tulis Jetis Sidoarjo bermotif bunga klasik. Kombinasi kulit asli dan batik tradisional.",
+    images: [L("tas-batik-jetis.jpg"), L("tas-tote-batik.jpg")],
+    badge: "JUST IN", featured: true, bestSeller: false, newArrival: true,
+    details: { material: "Batik tulis Jetis & kulit sapi", motif: "Kembang Setaman" }
+  },
+  {
+    id: "p08", slug: "topi-batik-jetis", name: "Topi Batik Jetis", category: "Batik Jetis",
+    brand: "Batik Jetis Studio", price: 149000, oldPrice: 189000, discount: 21, rating: 4.9, reviewCount: 112,
+    stock: 40, stockStatus: "In Stock", colors: ["Hitam", "Coklat"], sizes: ["One Size"],
+    description: "Topi baseball bermotif batik Jetis Sidoarjo. Bahan katun batik cap, dapat disesuaikan ukurannya.",
+    images: [L("topi-batik.jpg"), L("kain-batik-jetis.jpg")],
+    badge: "JUST IN", featured: false, bestSeller: false, newArrival: true,
+    details: { material: "Katun batik cap Jetis" }
+  },
+  {
+    id: "p09", slug: "tote-bag-batik", name: "Tote Bag Batik Jetis", category: "Batik Jetis",
+    brand: "Batik Jetis Studio", price: 389000, oldPrice: 450000, discount: 14, rating: 4.6, reviewCount: 78,
+    stock: 13, stockStatus: "In Stock", colors: ["Hitam-Merah", "Biru-Putih"], sizes: [],
+    description: "Tote bag lebar dari kain batik tulis Jetis dengan pelapis kanvas. Handle kulit asli yang kuat untuk kebutuhan sehari-hari.",
+    images: [L("tas-tote-batik.jpg"), L("tas-batik-jetis.jpg")],
+    badge: "-14%", featured: false, bestSeller: true, newArrival: false,
+    details: { material: "Batik tulis Jetis & kanvas" }
+  },
+  {
+    id: "p10", slug: "kain-batik-jetis-tulis", name: "Kain Batik Jetis Tulis", category: "Batik Jetis",
+    brand: "Batik Jetis Studio", price: 499000, oldPrice: 590000, discount: 15, rating: 4.8, reviewCount: 105,
+    stock: 7, stockStatus: "In Stock", colors: ["Hitam-Merah", "Coklat-Krem"], sizes: ["2 meter", "3 meter"],
+    description: "Kain batik tulis asli Jetis Sidoarjo. Motif kembang setaman dikerjakan tangan dengan canting dan malam. Cocok untuk kemeja, blus, atau dekorasi.",
+    images: [L("kain-batik-jetis.jpg"), L("sarung-batik.jpg")],
+    badge: "-15%", featured: true, bestSeller: true, newArrival: true,
+    details: { material: "Katun primissima", motif: "Kembang Setaman Jetis", teknik: "Batik tulis canting" }
+  },
+  {
+    id: "p11", slug: "kemeja-batik-jetis", name: "Kemeja Batik Jetis Pria", category: "Batik Jetis",
+    brand: "Batik Jetis Studio", price: 420000, oldPrice: 500000, discount: 16, rating: 4.9, reviewCount: 142,
+    stock: 8, stockStatus: "In Stock", colors: ["Hitam", "Coklat"], sizes: ["S", "M", "L", "XL", "XXL"],
+    description: "Kemeja batik tulis Jetis Sidoarjo lengan panjang untuk pria. Motif bunga dan daun tradisional, bahan katun primissima yang adem.",
+    images: [L("kemeja-batik-jetis-pria.jpg"), L("kain-batik-jetis.jpg")],
+    badge: "-16%", featured: true, bestSeller: true, newArrival: true,
+    details: { material: "Katun primissima", motif: "Sekar Jagad Jetis" }
+  },
+  {
+    id: "p12", slug: "sepatu-kulit-tanggulangin", name: "Sepatu Kulit Derby Tanggulangin", category: "Kulit Tanggulangin",
+    brand: "Tanggulangin Craft", price: 780000, oldPrice: 920000, discount: 15, rating: 4.8, reviewCount: 47,
+    stock: 6, stockStatus: "In Stock", colors: ["Coklat Tua", "Hitam"], sizes: ["40", "41", "42", "43", "44"],
+    description: "Sepatu derby kulit sapi asli buatan tangan pengrajin Tanggulangin. Detail brogue, sol kulit, dan finishing matte yang elegan.",
+    images: [L("sepatu-kulit-tanggulangin.jpg"), L("sandal-kulit-tanggulangin.jpg")],
+    badge: "-15%", featured: false, bestSeller: false, newArrival: true,
+    details: { material: "Kulit sapi full-grain", sole: "Sol kulit" }
+  },
+  {
+    id: "p13", slug: "ikat-pinggang-kulit", name: "Ikat Pinggang Kulit Ukir", category: "Kulit Tanggulangin",
+    brand: "Tanggulangin Craft", price: 249000, oldPrice: 310000, discount: 20, rating: 4.9, reviewCount: 54,
+    stock: 5, stockStatus: "In Stock", colors: ["Coklat", "Hitam"], sizes: ["85", "90", "95", "100", "105"],
+    description: "Ikat pinggang kulit sapi full-grain dengan ukiran motif flora khas Tanggulangin. Gesper logam antik kuningan tahan lama.",
+    images: [L("ikat-pinggang-kulit.jpg"), L("dompet-kulit-tanggulangin.jpg")],
+    badge: "-20%", featured: true, bestSeller: true, newArrival: true,
+    details: { material: "Kulit sapi full-grain", buckle: "Logam kuningan antik" }
+  },
+  {
+    id: "p14", slug: "blus-batik-wanita", name: "Blus Batik Jetis Wanita", category: "Batik Jetis",
+    brand: "Batik Jetis Studio", price: 350000, oldPrice: 420000, discount: 17, rating: 4.7, reviewCount: 69,
+    stock: 20, stockStatus: "In Stock", colors: ["Hitam-Merah", "Biru-Coklat"], sizes: ["S", "M", "L", "XL"],
+    description: "Blus wanita batik tulis Jetis Sidoarjo lengan panjang. Motif flora klasik dengan warna sogan khas Sidoarjo yang elegan.",
+    images: [L("blus-batik-wanita.jpg"), L("kain-batik-jetis.jpg")],
+    badge: "-17%", featured: false, bestSeller: true, newArrival: false,
+    details: { material: "Katun primissima", motif: "Parang Kusumo" }
+  },
+  {
+    id: "p15", slug: "sarung-batik-jetis", name: "Sarung Batik Jetis Tulis", category: "Batik Jetis",
+    brand: "Batik Jetis Studio", price: 550000, oldPrice: 680000, discount: 19, rating: 4.9, reviewCount: 38,
+    stock: 10, stockStatus: "In Stock", colors: ["Hitam-Merah", "Coklat-Krem"], sizes: ["One Size"],
+    description: "Sarung batik tulis Jetis Sidoarjo untuk pria. Dibuat dengan canting oleh pengrajin berpengalaman. Motif kawung dan parang tradisional.",
+    images: [L("sarung-batik.jpg"), L("kain-batik-jetis.jpg")],
+    badge: "JUST IN", featured: true, bestSeller: false, newArrival: true,
+    details: { material: "Katun primissima", teknik: "Batik tulis" }
+  },
+  {
+    id: "p16", slug: "minyak-esensial-sidoarjo", name: "Minyak Esensial Herbal Sidoarjo", category: "Aromaterapi",
+    brand: "Aura Nusantara", price: 189000, oldPrice: 230000, discount: 18, rating: 4.9, reviewCount: 118,
+    stock: 15, stockStatus: "In Stock", colors: [], sizes: ["30ml", "60ml"],
+    description: "Minyak esensial 100% alami dari tanaman herbal Jawa Timur. Aroma melati, kenanga, dan pandan yang menenangkan.",
+    images: [L("minyak-aromaterapi.jpg"), L("parfum-batik.jpg")],
+    badge: "-18%", featured: true, bestSeller: true, newArrival: true,
+    details: { concentration: "100% Pure Essential Oil", aroma: "Melati & Kenanga" }
+  },
+  {
+    id: "p17", slug: "sabun-herbal-tradisional", name: "Sabun Herbal Tradisional Jawa", category: "Aromaterapi",
+    brand: "Aura Nusantara", price: 89000, oldPrice: 120000, discount: 26, rating: 4.8, reviewCount: 95,
+    stock: 24, stockStatus: "In Stock", colors: [], sizes: ["100g", "200g"],
+    description: "Sabun tradisional dari campuran kunyit, temulawak, dan minyak kelapa murni. Membantu mencerahkan dan melembutkan kulit.",
+    images: [L("sabun-alami.jpg"), L("minyak-aromaterapi.jpg")],
+    badge: "-26%", featured: false, bestSeller: true, newArrival: false,
+    details: { volume: "100g / 200g", ingredients: "Kunyit, temulawak, minyak kelapa" }
+  },
+  {
+    id: "p18", slug: "lulur-tradisional-jawa", name: "Lulur Tradisional Jawa", category: "Aromaterapi",
+    brand: "Aura Nusantara", price: 120000, oldPrice: 150000, discount: 20, rating: 4.7, reviewCount: 82,
+    stock: 19, stockStatus: "In Stock", colors: [], sizes: ["200g", "500g"],
+    description: "Lulur tradisional dari beras, kunyit, dan rempah pilihan Jawa. Mengangkat sel kulit mati dan menjaga kelembaban alami.",
+    images: [L("pelembab-herbal.jpg"), L("sabun-alami.jpg")],
+    badge: "-20%", featured: false, bestSeller: false, newArrival: true,
+    details: { weight: "200g / 500g", ingredients: "Beras, kunyit, rempah Jawa" }
+  },
+  {
+    id: "p19", slug: "parfum-batik-sidoarjo", name: "Parfum Batik Sidoarjo", category: "Aromaterapi",
+    brand: "Aura Nusantara", price: 250000, oldPrice: 310000, discount: 19, rating: 4.6, reviewCount: 71,
+    stock: 12, stockStatus: "In Stock", colors: [], sizes: ["30ml", "50ml"],
+    description: "Parfum lokal dengan aroma melati, sandalwood, dan pandan dalam botol bermotif batik Jetis. Edisi terbatas koleksi Sidoarjo.",
+    images: [L("parfum-batik.jpg"), L("minyak-aromaterapi.jpg")],
+    badge: "-19%", featured: false, bestSeller: false, newArrival: true,
+    details: { concentration: "Eau de Parfum", volume: "30ml / 50ml" }
+  },
+  {
+    id: "p20", slug: "keranjang-anyaman-pandan", name: "Keranjang Anyaman Pandan", category: "Anyaman",
+    brand: "Kriya Anyam", price: 189000, oldPrice: 240000, discount: 21, rating: 4.7, reviewCount: 64,
+    stock: 21, stockStatus: "In Stock", colors: ["Natural", "Coklat"], sizes: [],
+    description: "Keranjang anyaman daun pandan handmade khas Sidoarjo. Kuat, ramah lingkungan, cocok untuk penyimpanan rumah.",
+    images: [L("anyaman-pandan.jpg"), L("anyaman-bambu.jpg")],
+    badge: "-21%", featured: false, bestSeller: true, newArrival: false,
+    details: { material: "Daun pandan", diameter: "30 cm" }
+  },
+  {
+    id: "p21", slug: "pot-gerabah-dekorasi", name: "Pot Gerabah Dekorasi", category: "Dekorasi",
+    brand: "Kriya Nusantara", price: 129000, oldPrice: 170000, discount: 24, rating: 4.5, reviewCount: 41,
+    stock: 17, stockStatus: "In Stock", colors: ["Terracotta", "Natural"], sizes: [],
+    description: "Pot gerabah handmade dari tanah liat Sidoarjo dengan finishing glasir alami. Cocok untuk tanaman hias atau dekorasi interior.",
+    images: [L("kerajinan-gerabah.jpg"), L("pexels-clay-pottery-3771213.jpg")],
+    badge: "-24%", featured: false, bestSeller: false, newArrival: true,
+    details: { material: "Tanah liat bakar", diameter: "20 cm" }
+  },
+  {
+    id: "p22", slug: "lampu-anyam-bambu", name: "Lampu Hias Anyam Bambu", category: "Dekorasi",
+    brand: "Kriya Nusantara", price: 329000, oldPrice: 420000, discount: 22, rating: 4.6, reviewCount: 53,
+    stock: 9, stockStatus: "In Stock", colors: ["Natural", "Coklat"], sizes: [],
+    description: "Lampu hias gantung dari anyaman bambu. Sinar hangat memancarkan cahaya melalui celah anyaman menciptakan pola indah di dinding.",
+    images: [L("pexels-bamboo-weaving-6875205.jpg"), L("anyaman-bambu.jpg")],
+    badge: "-22%", featured: false, bestSeller: false, newArrival: true,
+    details: { material: "Bambu anyaman", light: "LED E27 warm white" }
+  },
+  {
+    id: "p23", slug: "gelang-kulit-anyam", name: "Gelang Kulit Anyam Tanggulangin", category: "Perhiasan",
+    brand: "Tanggulangin Craft", price: 89000, oldPrice: 120000, discount: 26, rating: 4.8, reviewCount: 77,
+    stock: 28, stockStatus: "In Stock", colors: ["Coklat", "Hitam", "Tan"], sizes: ["S", "M", "L"],
+    description: "Gelang anyaman kulit sapi asli Tanggulangin. Teknik kepang tangan, kait logam kuningan antik. Unisex, cocok untuk pria dan wanita.",
+    images: [L("gelang-kulit.jpg")],
+    badge: "-26%", featured: false, bestSeller: true, newArrival: false,
+    details: { material: "Kulit sapi asli", closure: "Kait kuningan" }
+  },
+  {
+    id: "p24", slug: "tas-pinggang-kulit", name: "Tas Pinggang Kulit Tanggulangin", category: "Kulit Tanggulangin",
+    brand: "Tanggulangin Craft", price: 359000, oldPrice: 440000, discount: 18, rating: 4.7, reviewCount: 90,
+    stock: 14, stockStatus: "In Stock", colors: ["Coklat", "Hitam"], sizes: [],
+    description: "Tas pinggang (waist bag) kulit sapi asli dengan tali adjustable. Dua kompartemen, mudah dibawa saat bepergian atau berwisata.",
+    images: [L("tas-pinggang-kulit.jpg"), L("tas-selempang-kulit.jpg")],
+    badge: "-18%", featured: true, bestSeller: true, newArrival: false,
+    details: { material: "Kulit sapi asli", dimensions: "22 x 13 x 5 cm" }
+  },
+  {
+    id: "p25", slug: "koper-kulit-tanggulangin", name: "Koper Kulit Kabin Tanggulangin", category: "Kulit Tanggulangin",
+    brand: "Tanggulangin Craft", price: 1250000, oldPrice: 1500000, discount: 17, rating: 4.7, reviewCount: 89,
+    stock: 10, stockStatus: "In Stock", colors: ["Coklat Tua", "Hitam"], sizes: [],
+    description: "Koper kabin kulit sapi asli buatan pengrajin Tanggulangin. Rangka besi, roda 360 derajat, kunci kombinasi TSA. Kapasitas 35 liter.",
+    images: [L("koper-kulit.jpg"), L("tas-ransel-kulit.jpg")],
+    badge: "-17%", featured: false, bestSeller: true, newArrival: false,
+    details: { material: "Kulit sapi asli", capacity: "35 liter", lock: "TSA lock" }
+  },
+  {
+    id: "p26", slug: "tas-laptop-kulit", name: "Tas Laptop Kulit Tanggulangin", category: "Kulit Tanggulangin",
+    brand: "Tanggulangin Craft", price: 680000, oldPrice: 820000, discount: 17, rating: 4.6, reviewCount: 133,
+    stock: 26, stockStatus: "In Stock", colors: ["Coklat", "Hitam"], sizes: [],
+    description: "Tas laptop kulit sapi asli untuk laptop 14 inci. Desain messenger bag dengan banyak saku dan tali panjang adjustable.",
+    images: [L("tas-laptop-kulit.jpg"), L("tas-ransel-kulit.jpg")],
+    badge: "-17%", featured: false, bestSeller: true, newArrival: true,
+    details: { material: "Kulit sapi asli", laptop: "Muat laptop 14 inci" }
+  },
+  {
+    id: "p27", slug: "keranjang-anyaman-bambu", name: "Keranjang Anyaman Bambu", category: "Anyaman",
+    brand: "Kriya Anyam", price: 129000, oldPrice: 170000, discount: 24, rating: 4.5, reviewCount: 58,
+    stock: 35, stockStatus: "In Stock", colors: ["Natural", "Coklat"], sizes: [],
+    description: "Keranjang anyaman bambu handmade khas Sidoarjo. Kuat dan ramah lingkungan untuk penyimpanan pakaian, majalah, atau tanaman.",
+    images: [L("anyaman-bambu.jpg"), L("anyaman-pandan.jpg")],
+    badge: "-24%", featured: false, bestSeller: false, newArrival: true,
+    details: { material: "Bambu pilihan", diameter: "35 cm" }
+  },
+  {
+    id: "p28", slug: "dompet-batik-jetis", name: "Dompet Batik Jetis Wanita", category: "Batik Jetis",
+    brand: "Batik Jetis Studio", price: 179000, oldPrice: 220000, discount: 19, rating: 4.6, reviewCount: 44,
+    stock: 11, stockStatus: "In Stock", colors: ["Hitam-Merah", "Coklat-Krem"], sizes: [],
+    description: "Dompet wanita dari kain batik tulis Jetis Sidoarjo dengan kombinasi kulit sapi. Banyak slot kartu dan kompartemen koin.",
+    images: [L("dompet-batik.jpg"), L("kain-batik-jetis.jpg")],
+    badge: "-19%", featured: false, bestSeller: false, newArrival: true,
+    details: { material: "Batik tulis Jetis & kulit sapi", slots: "6 slot kartu" }
+  },
+  {
+    id: "p29", slug: "bros-batik-kuningan", name: "Bros Batik Kuningan", category: "Perhiasan",
+    brand: "Kriya Nusantara", price: 75000, oldPrice: 100000, discount: 25, rating: 4.8, reviewCount: 201,
+    stock: 48, stockStatus: "In Stock", colors: ["Kuning Emas", "Perak"], sizes: [],
+    description: "Bros motif batik dari logam kuningan handmade pengrajin Sidoarjo. Finishing antik yang elegan, cocok untuk kebaya atau kemeja batik.",
+    images: [L("bros-batik.jpg")],
+    badge: "-25%", featured: false, bestSeller: true, newArrival: false,
+    details: { material: "Kuningan", finish: "Antik emas / perak" }
+  },
+  {
+    id: "p30", slug: "tikar-anyaman-pandan", name: "Tikar Anyaman Pandan", category: "Anyaman",
+    brand: "Kriya Anyam", price: 159000, oldPrice: 200000, discount: 20, rating: 4.4, reviewCount: 36,
+    stock: 22, stockStatus: "In Stock", colors: ["Natural", "Coklat"], sizes: [],
+    description: "Tikar anyaman daun pandan khas Sidoarjo. Ramah lingkungan, alas duduk yang sejuk dan alami untuk ruang keluarga atau teras.",
+    images: [L("anyaman-pandan.jpg"), L("anyaman-bambu.jpg")],
+    badge: "-20%", featured: false, bestSeller: false, newArrival: true,
+    details: { material: "Daun pandan", ukuran: "100 x 150 cm" }
+  },
+  {
+    id: "p31", slug: "jam-dinding-batik", name: "Jam Dinding Motif Batik", category: "Dekorasi",
+    brand: "Kriya Nusantara", price: 229000, oldPrice: 280000, discount: 18, rating: 4.5, reviewCount: 29,
+    stock: 8, stockStatus: "In Stock", colors: ["Hitam", "Coklat"], sizes: [],
+    description: "Jam dinding silent-sweep dengan motif batik Sidoarjo. Frame kayu jati, jarum tipis, dan angka minimalis yang artistik.",
+    images: [L("jam-dinding-batik.jpg"), L("lampu-batik.jpg")],
+    badge: "-18%", featured: false, bestSeller: false, newArrival: false,
+    details: { material: "Kayu jati & batik cap", movement: "Silent quartz" }
+  },
+  {
+    id: "p32", slug: "gantungan-kunci-kulit", name: "Gantungan Kunci Kulit Ukir", category: "Kulit Tanggulangin",
+    brand: "Tanggulangin Craft", price: 49000, oldPrice: 75000, discount: 35, rating: 4.6, reviewCount: 61,
+    stock: 0, stockStatus: "Out of Stock", colors: ["Coklat", "Hitam"], sizes: [],
+    description: "Gantungan kunci kulit sapi asli dengan ukiran motif khas Tanggulangin. Hadiah souvenir yang unik dan berkesan. Stok sedang diisi ulang.",
+    images: [L("gantungan-kunci-kulit-wikimedia.jpg"), L("dompet-kulit-tanggulangin.jpg")],
+    badge: "SOLD OUT", featured: false, bestSeller: false, newArrival: false,
+    details: { material: "Kulit sapi asli" }
+  },
+  {
+    id: "p33", slug: "kaos-batik-sidoarjo", name: "Kaos Batik Cap Sidoarjo", category: "Batik Jetis",
+    brand: "Batik Jetis Studio", price: 185000, oldPrice: 230000, discount: 20, rating: 4.5, reviewCount: 87,
+    stock: 33, stockStatus: "In Stock", colors: ["Hitam", "Coklat", "Biru"], sizes: ["S", "M", "L", "XL", "XXL"],
+    description: "Kaos batik cap khas Sidoarjo berbahan katun combed 30s. Motif batik Jetis dicetak manual dengan malam, warna alami tahan lama.",
+    images: [L("kaos-batik.jpg"), L("kain-batik-jetis.jpg")],
+    badge: "-20%", featured: false, bestSeller: false, newArrival: true,
+    details: { material: "Katun combed 30s", motif: "Batik cap Jetis" }
+  },
+  {
+    id: "p34", slug: "kemeja-lurik-sidoarjo", name: "Kemeja Lurik Sidoarjo", category: "Batik Jetis",
+    brand: "Batik Jetis Studio", price: 320000, oldPrice: 400000, discount: 20, rating: 4.7, reviewCount: 52,
+    stock: 14, stockStatus: "In Stock", colors: ["Hitam-Putih", "Coklat-Krem"], sizes: ["S", "M", "L", "XL"],
+    description: "Kemeja tenun lurik khas Jawa Timur dari pengrajin Sidoarjo. Bahan katun tenun ATBM, motif garis tradisional yang elegan.",
+    images: [L("baju-lurik.jpg"), L("kain-batik-jetis.jpg")],
+    badge: "JUST IN", featured: true, bestSeller: false, newArrival: true,
+    details: { material: "Katun tenun ATBM", motif: "Lurik Palupi" }
+  },
+  {
+    id: "p35", slug: "dompet-kulit-mini", name: "Dompet Koin Kulit Mini", category: "Kulit Tanggulangin",
+    brand: "Tanggulangin Craft", price: 99000, oldPrice: 135000, discount: 27, rating: 4.6, reviewCount: 73,
+    stock: 16, stockStatus: "In Stock", colors: ["Coklat", "Hitam", "Tan"], sizes: [],
+    description: "Dompet koin kulit sapi asli berukuran mini dari pengrajin Tanggulangin. Ritsleting logam, cocok sebagai souvenir atau hadiah.",
+    images: [L("dompet-kulit-klasik.jpg"), L("dompet-kulit-tanggulangin.jpg")],
+    badge: "-27%", featured: false, bestSeller: false, newArrival: false,
+    details: { material: "Kulit sapi asli", dimensions: "10 x 8 cm" }
+  },
+  {
+    id: "p36", slug: "krim-herbal-jawa", name: "Krim Pelembab Herbal Jawa", category: "Aromaterapi",
+    brand: "Aura Nusantara", price: 120000, oldPrice: 160000, discount: 25, rating: 4.4, reviewCount: 39,
+    stock: 27, stockStatus: "In Stock", colors: [], sizes: ["50ml", "100ml"],
+    description: "Krim pelembab kulit dari bahan herbal tradisional Jawa: lidah buaya, minyak kemiri, dan kunyit. Tanpa bahan kimia berbahaya.",
+    images: [L("pelembab-herbal.jpg"), L("sabun-alami.jpg")],
+    badge: "-25%", featured: false, bestSeller: false, newArrival: true,
+    details: { volume: "50ml / 100ml", ingredients: "Lidah buaya, kemiri, kunyit" }
+  },
+  {
+    id: "p37", slug: "tas-anyaman-pandan", name: "Tas Anyaman Pandan", category: "Anyaman",
+    brand: "Kriya Anyam", price: 299000, oldPrice: 350000, discount: 14, rating: 4.5, reviewCount: 30,
+    stock: 15, stockStatus: "In Stock", colors: ["Natural", "Coklat"], sizes: [],
+    description: "Tas anyaman daun pandan kuat, cocok untuk keperluan sehari-hari.",
+    images: [L("anyaman-pandan.jpg")],
+    badge: "JUST IN", featured: false, bestSeller: false, newArrival: true,
+    details: { material: "Daun pandan" }
+  },
+  {
+    id: "p38", slug: "kerajinan-bambu-craft", name: "Kerajinan Bambu Craft", category: "Dekorasi",
+    brand: "Kriya Nusantara", price: 399000, oldPrice: 470000, discount: 15, rating: 4.6, reviewCount: 22,
+    stock: 12, stockStatus: "In Stock", colors: ["Natural"], sizes: [],
+    description: "Kerajinan bambu handcraft untuk hiasan rumah, elegan dan ramah lingkungan.",
+    images: [L("pexels-bamboo-craft-13757390.jpg")],
+    badge: "JUST IN", featured: false, bestSeller: false, newArrival: true,
+    details: { material: "Bambu" }
+  },
+  {
+    id: "p39", slug: "batik-painting-art", name: "Batik Painting Art", category: "Batik Jetis",
+    brand: "Batik Jetis Studio", price: 259000, oldPrice: 310000, discount: 16, rating: 4.7, reviewCount: 18,
+    stock: 20, stockStatus: "In Stock", colors: ["Berwarna"], sizes: [],
+    description: "Karya batik modern dengan sentuhan seni lukis, cocok sebagai hiasan dinding.",
+    images: [L("pexels-batik-painting-37575474.jpg")],
+    badge: "JUST IN", featured: false, bestSeller: false, newArrival: true,
+    details: { material: "Kain batik" }
+  }
+];

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search — TokoKriya</title>
+  <script>try{if(localStorage.getItem("tokokriya-theme")==="dark")document.documentElement.dataset.theme="dark"}catch{}try{if(sessionStorage.getItem("tk:page-transition")==="1")document.documentElement.dataset.pageTransition="pending"}catch{}</script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body data-page="search">
+  <header id="site-header" class="site-header"></header>
+  <main id="main" class="container" style="padding-top:1.5rem">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Search</p>
+    <h1>Search Results</h1>
+    <form id="search-form" class="coupon-row" style="max-width:640px" autocomplete="off">
+      <input id="search-q" name="q" type="search" placeholder="Search products" autocomplete="off">
+      <button class="btn btn-primary" type="submit">Search</button>
+      <button class="btn btn-ghost" type="button" data-clear-search>Clear</button>
+    </form>
+    <div class="shop-toolbar">
+      <p id="search-label"></p>
+      <select id="sort">
+        <option value="recommended">Recommended</option>
+        <option value="newest">Newest</option>
+        <option value="price-asc">Price Low to High</option>
+        <option value="price-desc">Price High to Low</option>
+        <option value="rating">Rating</option>
+      </select>
+    </div>
+    <div class="products-grid" id="search-grid"></div>
+  </main>
+  <footer id="site-footer" class="site-footer"></footer>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/account.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

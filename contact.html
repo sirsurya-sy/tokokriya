@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — TokoKriya</title>
+  <script>try{if(localStorage.getItem("tokokriya-theme")==="dark")document.documentElement.dataset.theme="dark"}catch{}try{if(sessionStorage.getItem("tk:page-transition")==="1")document.documentElement.dataset.pageTransition="pending"}catch{}</script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body data-page="contact">
+  <header id="site-header" class="site-header"></header>
+  <main id="main" class="container" style="padding-top:1.5rem">
+    <h1>Get in Touch</h1>
+    <div class="contact-grid">
+      <aside>
+        <p><strong>Email</strong><br><a href="mailto:hello@tokokriya.id">hello@tokokriya.id</a></p>
+        <p style="margin:.8rem 0"><strong>Phone</strong><br><a href="tel:+623189452200">+62 31 8945 2200</a></p>
+        <p><strong>Studio</strong><br>Jl. Gubernur Suryo No. 18<br>Sidoarjo, Jawa Timur 61219</p>
+        <p style="margin:.8rem 0"><a href="faq.html">Read FAQ</a></p>
+      </aside>
+      <form id="contact-form" class="form-grid">
+        <label class="lbl">Name<input class="field" name="name" required></label>
+        <label class="lbl">Email<input class="field" name="email" type="email" required></label>
+        <label class="lbl full">Subject<input class="field" name="subject" required></label>
+        <label class="lbl full">Message<textarea class="field" name="message" rows="5" required></textarea></label>
+        <button class="btn btn-primary" type="submit">Send message</button>
+        <p id="contact-ok" hidden>Pesan terkirim. Kami akan membalas di demo ini secara lokal.</p>
+      </form>
+    </div>
+  </main>
+  <footer id="site-footer" class="site-footer"></footer>
+  <script src="js/data.js"></script><script src="js/utils.js"></script><script src="js/cart.js"></script><script src="js/wishlist.js"></script><script src="js/account.js"></script><script src="js/products.js"></script><script src="js/checkout.js"></script><script src="js/app.js"></script>
+</body>
+</html>
